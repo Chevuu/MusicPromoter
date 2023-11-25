@@ -4,12 +4,42 @@
   margin: 0 auto;
   margin-bottom: 16px;
   position: relative;
-  height: 35vh;
+  height: 27vh;
   width: 100%;
   background-color: #282828; /* Spotify-like black background for the player */
   border-radius: 8px; /* Rounded corners for the player */
   padding: 18px;
   overflow: hidden; /* Ensures the content fits within the border radius */
+}
+
+/* Add this to your player.css */
+.buy-button {
+  position: absolute;
+  bottom: 18px; /* Adjust as needed */
+  right: 18px; /* Adjust as needed */
+  background-color: #5b1fa4; /* Similar purple to the thumbnail */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.8em;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Space between icon and text */
+}
+
+.buy-button:hover {
+  background-color: #a56fe8; /* A slightly different purple for hover effect */
+}
+
+/* If you have not added a class for the song title, you can style it like this: */
+.song-title {
+  position: absolute;
+  bottom: 18px;
+  left: 18px; /* Adjust as needed */
+  color: white;
+  font-size: 1em;
 }
 
 .thumbnail {
@@ -21,7 +51,7 @@
 
 .play-button {
   position: absolute;
-  top: 36%; /* Center the button vertically */
+  top: 45%; /* Center the button vertically */
   left: 50%; /* Center the button horizontally */
   transform: translate(-50%, -50%); /* Offset the button by half its width and height to center */
   background-color: transparent; /* Keep the button background transparent */
@@ -37,6 +67,6 @@
 }
 
 /* You can add styles for the playing state if you want to change the appearance when the audio is playing */
-.playing {
+/* .playing { */
   /* Styles for playing state */
-}
+/* }  */
