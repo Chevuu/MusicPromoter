@@ -6,47 +6,105 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(to top right, #9e4eff, #0f0010);
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  background: linear-gradient(to top right, rgb(188, 188, 17), rgb(21, 17, 0));
 }
 
 .app {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columns by default */
-  grid-gap: 16px; /* Space between items */
+  display: flex; /* Use flexbox for layout */
+  height: 100vh; /* Full-height to align with the sidebar */
+  width: 100vw; /* Full width to ensure sidebar and content fill the screen */
+}
+
+.sidebar {
+  position: fixed;
+  background-color: #111; /* Sidebar background */
+  color: white;
+  width: 250px; /* Sidebar width */
+  height: 100vh; /* Full-height */
+  padding: 20px; /* Padding */
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  /* Add more styles if needed */
+}
+
+.sidebar a {
+  color: white;
+  padding: 10px;
+  margin: 5px 0;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #333; /* Hover effect */
+}
+
+.main-content {
+  margin-left: 290px; /* Add left margin to account for sidebar width */
+}
+
+.content {
+  flex-grow: 1; /* Take up remaining space */
   padding: 16px; /* Padding around the grid */
-  margin: auto; /* Center the grid horizontally */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Adjust the number of columns as needed */
+  grid-gap: 16px; /* Space between items */
+  overflow: auto;
 }
 
 @media (max-width: 1200px) {
-  .app {
+  .content {
     grid-template-columns: repeat(4, 1fr); /* 4 columns for wider screens but smaller than 1200px */
+  }
+
+  .main-content {
+    margin-left: 240px;
+  }
+
+  .sidebar {
+    width: 210px;
+    padding: 15px;
   }
 }
 
 @media (max-width: 992px) {
-  .app {
+  .content {
     grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+  }
+
+  .main-content {
+    margin-left: 210px;
+  }
+
+  .sidebar {
+    width: 180px;
+    padding: 15px;
   }
 }
 
 @media (max-width: 768px) {
-  .app {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for small screens */
+  .content {
+    grid-template-columns: repeat(2, 2fr); /* 2 columns for small screens */
+    grid-gap: 20px; /* Smaller gap for tighter space */
+    padding: 10px; /* Reduced padding */
+  }
+
+  .main-content {
+    margin-left: 180px;
+  }
+
+  .sidebar {
+    width: 150px;
+    padding: 15px;
   }
 }
 
 @media (max-width: 576px) {
-  .app {
-    grid-template-columns: 1fr; /* 1 column for extra small screens */
+  .content {
+    grid-template-columns: repeat(2, 2fr); /* 2 columns for extra small screens */
+    grid-gap: 20px;
+    padding: 10px;
   }
-}
-
-/* Add styles for each player if needed */
-.player {
-  /* Your existing styles for player */
 }

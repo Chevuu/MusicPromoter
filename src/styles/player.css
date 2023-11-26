@@ -5,11 +5,11 @@
   margin-bottom: 16px;
   position: relative;
   height: 27vh;
-  width: 100%;
-  background-color: #282828; /* Spotify-like black background for the player */
-  border-radius: 8px; /* Rounded corners for the player */
+  /* width: 100%; */
+  background-color: #282828;
+  border-radius: 8px;
   padding: 18px;
-  overflow: hidden; /* Ensures the content fits within the border radius */
+  overflow: hidden;
 }
 
 /* Add this to your player.css */
@@ -70,3 +70,67 @@
 /* .playing { */
   /* Styles for playing state */
 /* }  */
+
+@media (max-width: 768px) {
+  .player {
+    max-width: 170px;
+    margin-bottom: 10px; /* Consistent with the grid gap */
+    height: 220px; /* Let the content determine the height, or set a specific height if preferred */
+    padding: 10px;
+    /* Optional: Adjust width or max-width if you want the player to be smaller */
+  }
+
+  /* Adjust thumbnail size if needed */
+  .thumbnail {
+    /* If you want thumbnails to be smaller on mobile, adjust the width */
+    margin: 0 auto;  /* Center if width is less than 100% */
+  }
+
+  /* Adjust the play button size or position if needed */
+  .play-button {
+    /* If the button is too large on mobile, reduce its size */
+    /* font-size: 1.5em; */
+    top: 40%;
+  }
+
+  /* Adjust the buy button size or position if needed */
+  .buy-button {
+    /* Example: adjust padding or font-size for a smaller button */
+    padding: 6px 10px;
+    font-size: 1em;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .player {
+    max-width: 130px;
+    margin-bottom: 10px; /* Consistent with the grid gap */
+    height: 170px; /* Let the content determine the height, or set a specific height if preferred */
+    padding: 10px;
+    /* Optional: Adjust width or max-width if you want the player to be smaller */
+  }
+
+  /* Adjust thumbnail size if needed */
+  .thumbnail {
+    /* If you want thumbnails to be smaller on mobile, adjust the width */
+    margin: 0 auto;  /* Center if width is less than 100% */
+  }
+
+  /* Adjust the play button size or position if needed */
+  .play-button {
+    /* If the button is too large on mobile, reduce its size */
+    /* font-size: 1.5em; */
+    top: 40%;
+  }
+
+  /* Adjust the buy button size or position if needed */
+  .buy-button {
+    /* Example: adjust padding or font-size for a smaller button */
+    padding: 6px 10px;
+    font-size: 0.7em;
+    bottom: 10px;
+    right: 10px;
+  }
+}

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import Player from './components/Player';
-import './index.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Player from "./components/Player";
+import "./index.css";
+// Import other pages/components here
 
 const App = () => {
   const [playingId, setPlayingId] = useState(null);
@@ -19,19 +21,40 @@ const App = () => {
   }));
 
   return (
-    <div className="app">
-      {players.map((player) => (
-        <Player
-          key={player.id}
-          id={player.id}
-          isPlaying={player.id === playingId}
-          onPlayRequest={handlePlayRequest}
-          title={player.title}
-          songUrl={player.songUrl}
-          thumbnail={player.thumbnailUrl}
-        />
-      ))}
-    </div>
+    <Router>
+      <div className="app">
+        <div className="sidebar">
+          <Link to="/login">Log In</Link>
+          <Link to="/">All Songs</Link>
+          <Link to="/my-songs">My Songs</Link>
+          <Link to="/settings">Settings</Link>
+        </div>
+        <Routes>
+            <Route
+            
+              path="/"
+              element={
+                <div className="main-content content">
+                  {players.map((player) => (
+                    <Player
+                      key={player.id}
+                      id={player.id}
+                      isPlaying={player.id === playingId}
+                      onPlayRequest={handlePlayRequest}
+                      title={player.title}
+                      songUrl={player.songUrl}
+                      thumbnail={player.thumbnailUrl}
+                    />
+                  ))}
+                </div>
+              }
+            />
+            <Route path="/my-songs" element={<div className="main-content">My Songs Page</div>} />
+            <Route path="/login" element={<div className="main-content">Login Page</div>} />
+            <Route path="/settings" element={<div className="main-content">Settings</div>} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
