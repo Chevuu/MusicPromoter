@@ -1,0 +1,136 @@
+/* Player.css */
+.player {
+  max-width: 200px;
+  margin: 0 auto;
+  margin-bottom: 16px;
+  position: relative;
+  height: 27vh;
+  /* width: 100%; */
+  background-color: #282828;
+  border-radius: 8px;
+  padding: 18px;
+  overflow: hidden;
+}
+
+/* Add this to your player.css */
+.buy-button {
+  position: absolute;
+  bottom: 18px; /* Adjust as needed */
+  right: 18px; /* Adjust as needed */
+  background-color: #5b1fa4; /* Similar purple to the thumbnail */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.8em;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Space between icon and text */
+}
+
+.buy-button:hover {
+  background-color: #a56fe8; /* A slightly different purple for hover effect */
+}
+
+/* If you have not added a class for the song title, you can style it like this: */
+.song-title {
+  position: absolute;
+  bottom: 18px;
+  left: 18px; /* Adjust as needed */
+  color: white;
+  font-size: 1em;
+}
+
+.thumbnail {
+  width: 100%;
+  border-radius: 10px;
+  display: block; /* This removes any extra space below the image */
+  transition: opacity 0.3s ease; /* Smooth transition for the thumbnail */
+}
+
+.play-button {
+  position: absolute;
+  top: 45%; /* Center the button vertically */
+  left: 50%; /* Center the button horizontally */
+  transform: translate(-50%, -50%); /* Offset the button by half its width and height to center */
+  background-color: transparent; /* Keep the button background transparent */
+  border: none; /* No border for the button */
+  color: white; /* White color for the play/pause text */
+  font-size: 2em; /* Make the play/pause symbol bigger */
+  cursor: pointer;
+  outline: none;
+}
+
+.player:hover .thumbnail {
+  opacity: 0.7; /* Slightly see-through thumbnail on hover for interaction feedback */
+}
+
+/* You can add styles for the playing state if you want to change the appearance when the audio is playing */
+/* .playing { */
+  /* Styles for playing state */
+/* }  */
+
+@media (max-width: 768px) {
+  .player {
+    max-width: 170px;
+    margin-bottom: 10px; /* Consistent with the grid gap */
+    height: 220px; /* Let the content determine the height, or set a specific height if preferred */
+    padding: 10px;
+    /* Optional: Adjust width or max-width if you want the player to be smaller */
+  }
+
+  /* Adjust thumbnail size if needed */
+  .thumbnail {
+    /* If you want thumbnails to be smaller on mobile, adjust the width */
+    margin: 0 auto;  /* Center if width is less than 100% */
+  }
+
+  /* Adjust the play button size or position if needed */
+  .play-button {
+    /* If the button is too large on mobile, reduce its size */
+    /* font-size: 1.5em; */
+    top: 40%;
+  }
+
+  /* Adjust the buy button size or position if needed */
+  .buy-button {
+    /* Example: adjust padding or font-size for a smaller button */
+    padding: 6px 10px;
+    font-size: 1em;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .player {
+    max-width: 130px;
+    margin-bottom: 10px; /* Consistent with the grid gap */
+    height: 170px; /* Let the content determine the height, or set a specific height if preferred */
+    padding: 10px;
+    /* Optional: Adjust width or max-width if you want the player to be smaller */
+  }
+
+  /* Adjust thumbnail size if needed */
+  .thumbnail {
+    /* If you want thumbnails to be smaller on mobile, adjust the width */
+    margin: 0 auto;  /* Center if width is less than 100% */
+  }
+
+  /* Adjust the play button size or position if needed */
+  .play-button {
+    /* If the button is too large on mobile, reduce its size */
+    /* font-size: 1.5em; */
+    top: 40%;
+  }
+
+  /* Adjust the buy button size or position if needed */
+  .buy-button {
+    /* Example: adjust padding or font-size for a smaller button */
+    padding: 6px 10px;
+    font-size: 0.7em;
+    bottom: 10px;
+    right: 10px;
+  }
+}
