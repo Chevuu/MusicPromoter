@@ -43,6 +43,7 @@ body {
 
 .main-content {
   margin-left: 290px; /* Add left margin to account for sidebar width */
+  width: 100%;
 }
 
 .content {

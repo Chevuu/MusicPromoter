@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/login.css"
 
 
 const Login = () => {
@@ -14,7 +15,6 @@ const Login = () => {
         // };
 
         try {
-            // login
             console.log('Login successful');
         } catch (error) {
             console.error('Login failed:', error.response || error.message);
@@ -22,7 +22,7 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <div className="login-container">
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <div>
