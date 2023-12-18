@@ -54,3 +54,9 @@
   text-align: center;
   margin-bottom: 20px;
 }
+
+.create-account-link {
+  color: #000000; /* Example color */
+  margin-top: 15px; /* Spacing from the form */
+  /* Other styles */
+}
