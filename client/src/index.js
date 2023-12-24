@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import AuthProvider from './logic/AuthContext';
+import { AuthProvider } from './logic/AuthContext';
 import App from './App'; // Import the App component
 import reportWebVitals from './reportWebVitals';
 

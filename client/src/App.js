@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Player from "./components/Player";
 import LogIn from "./components/LogIn";
 import "./index.css";
-// Import other pages/components here
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
+import { useAuth } from "./logic/AuthContext";
 
 const App = () => {
   const [playingId, setPlayingId] = useState(null);
+  const { isLoggedIn, setLoggedIn } = useAuth();
+
+  const logout = () => {
+    setLoggedIn(false);
+  };
 
   const handlePlayRequest = (id) => {
     if (playingId !== id) {
@@ -25,34 +30,55 @@ const App = () => {
     <Router>
       <div className="app">
         <div className="sidebar">
-          <Link to="/login">Log in</Link>
-          <Link to="/">All Songs</Link>
-          <Link to="/my-songs">My Songs</Link>
+          {!isLoggedIn && <Link to="/login">Log in</Link>}
+          {isLoggedIn && (
+            <>
+              <Link to="/">All Songs</Link>
+              <Link to="/my-songs">My Songs</Link>
+            </>
+          )}
           <Link to="/settings">Settings</Link>
+          {isLoggedIn && <Link to="/login" onClick={logout}>Log Out</Link>}
         </div>
         <Routes>
-            <Route
-            
-              path="/"
-              element={
-                <div className="main-content content">
-                  {players.map((player) => (
-                    <Player
-                      key={player.id}
-                      id={player.id}
-                      isPlaying={player.id === playingId}
-                      onPlayRequest={handlePlayRequest}
-                      title={player.title}
-                      songUrl={player.songUrl}
-                      thumbnail={player.thumbnailUrl}
-                    />
-                  ))}
+          <Route
+            path="/"
+            element={
+              <div className="main-content content">
+                {players.map((player) => (
+                  <Player
+                    key={player.id}
+                    id={player.id}
+                    isPlaying={player.id === playingId}
+                    onPlayRequest={handlePlayRequest}
+                    title={player.title}
+                    songUrl={player.songUrl}
+                    thumbnail={player.thumbnailUrl}
+                  />
+                ))}
+              </div>
+            }
+          />
+          <Route
+            path="/my-songs"
+            element={<div className="main-content">My Songs Page</div>}
+          />
+          <Route
+            path="/login"
+            element={
+              isLoggedIn ? (
+                <Navigate replace to="/" />
+              ) : (
+                <div className="main-content">
+                  <LogIn />
                 </div>
-              }
-            />
-            <Route path="/my-songs" element={<div className="main-content">My Songs Page</div>} />
-            <Route path="/login" element={<div className="main-content"><LogIn/></div>} />
-            <Route path="/settings" element={<div className="main-content">Settings</div>} />
+              )
+            }
+          />
+          <Route
+            path="/settings"
+            element={<div className="main-content">Settings</div>}
+          />
         </Routes>
       </div>
     </Router>

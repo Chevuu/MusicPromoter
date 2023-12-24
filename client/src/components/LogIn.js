@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "../styles/login.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../logic/AuthContext"
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { setLoggedIn } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -26,6 +28,7 @@ const Login = () => {
 
       if (response.ok) {
         console.log("Login successful");
+        setLoggedIn(true);
         navigate('/')
       } else {
         console.error("Login failed: ", response.status);
