@@ -1,4 +1,4 @@
-package com.example.server.config;
+package com.music.server.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
