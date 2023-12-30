@@ -1,13 +1,22 @@
 import React, { useState } from "react";
 import Player from "./components/Player";
 import LogIn from "./components/LogIn";
+import CreateAccount from "./components/CreateAccount";
 import "./index.css";
-import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
+import SongPurchase from "./components/SongPurchase";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+} from "react-router-dom";
 import { useAuth } from "./logic/AuthContext";
 
 const App = () => {
   const [playingId, setPlayingId] = useState(null);
   const { isLoggedIn, setLoggedIn } = useAuth();
+  const [showMask, setShowMask] = useState(false);
 
   const logout = () => {
     setLoggedIn(false);
@@ -38,13 +47,18 @@ const App = () => {
             </>
           )}
           <Link to="/settings">Settings</Link>
-          {isLoggedIn && <Link to="/login" onClick={logout}>Log Out</Link>}
+          {isLoggedIn && (
+            <Link to="/login" onClick={logout}>
+              Log Out
+            </Link>
+          )}
         </div>
         <Routes>
           <Route
             path="/"
             element={
-              <div className="main-content content">
+              <div className={`main-content content ${showMask ? "mask" : ""}`}>
+                {showMask && <SongPurchase setShowMask={setShowMask} />}
                 {players.map((player) => (
                   <Player
                     key={player.id}
@@ -54,6 +68,7 @@ const App = () => {
                     title={player.title}
                     songUrl={player.songUrl}
                     thumbnail={player.thumbnailUrl}
+                    setShowMask={setShowMask}
                   />
                 ))}
               </div>
@@ -73,6 +88,14 @@ const App = () => {
                   <LogIn />
                 </div>
               )
+            }
+          />
+          <Route
+            path="/create-account"
+            element={
+              <div className="main-content">
+                <CreateAccount />
+              </div>
             }
           />
           <Route

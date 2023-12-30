@@ -1,10 +1,17 @@
-import React, { useRef, useEffect } from 'react';
-import '../styles/player.css';
-// If you're using Font Awesome, import the library
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
+import React, { useRef, useEffect } from "react";
+import "../styles/player.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
 
-const Player = ({ id, title, songUrl, thumbnail, isPlaying, onPlayRequest }) => {
+const Player = ({
+  id,
+  title,
+  songUrl,
+  thumbnail,
+  isPlaying,
+  onPlayRequest,
+  setShowMask
+}) => {
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -12,7 +19,7 @@ const Player = ({ id, title, songUrl, thumbnail, isPlaying, onPlayRequest }) => 
       audioRef.current.play();
     } else {
       audioRef.current.pause();
-      audioRef.current.currentTime = 0; // Reset the audio track to the beginning
+      audioRef.current.currentTime = 0;
     }
   }, [isPlaying]);
 
@@ -20,17 +27,32 @@ const Player = ({ id, title, songUrl, thumbnail, isPlaying, onPlayRequest }) => 
     onPlayRequest(id);
   };
 
+  const handleBuyClick = () => {
+    setShowMask(true);
+  };
+
   return (
     <div className="player">
-      <img src={`${process.env.PUBLIC_URL}/media/thumbnails/${thumbnail}`} alt={title} className="thumbnail" />
-      <button onClick={togglePlay} className={`play-button ${isPlaying ? 'playing' : ''}`}>
-        {isPlaying ? '||' : '▶'}
+      <img
+        src={`${process.env.PUBLIC_URL}/media/thumbnails/${thumbnail}`}
+        alt={title}
+        className="thumbnail"
+      />
+      <button
+        onClick={togglePlay}
+        className={`play-button ${isPlaying ? "playing" : ""}`}
+      >
+        {isPlaying ? "||" : "▶"}
       </button>
       <div className="song-title">{title}</div>
-      <button className="buy-button">
+      <button onClick={handleBuyClick} className="buy-button">
         <FontAwesomeIcon icon={faLock} /> Buy
       </button>
-      <audio ref={audioRef} src={`${process.env.PUBLIC_URL}/media/songs/${songUrl}`} onEnded={() => onPlayRequest(null)} />
+      <audio
+        ref={audioRef}
+        src={`${process.env.PUBLIC_URL}/media/songs/${songUrl}`}
+        onEnded={() => onPlayRequest(null)}
+      />
     </div>
   );
 };

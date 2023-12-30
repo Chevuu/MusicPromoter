@@ -19,8 +19,18 @@ public class UserController {
     @PostMapping(path = "/login", consumes = "application/json")
     public ResponseEntity<?> loginUser(@RequestBody User user) {
         try {
-            User saved = userService.saveUser(user);
-            return ResponseEntity.ok().body(saved);
+            String loginMessage = userService.loginUser(user);
+            return ResponseEntity.ok().body(loginMessage);
+        } catch (UserLoginException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+        }
+    }
+
+    @PostMapping(path = "/create", consumes = "application/json")
+    public ResponseEntity<?> createAccount(@RequestBody User user) {
+        try {
+            String loginMessage = userService.createAccount(user);
+            return ResponseEntity.ok().body(loginMessage);
         } catch (UserLoginException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
