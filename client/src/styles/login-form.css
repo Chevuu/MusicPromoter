@@ -1,0 +1,62 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #111;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+.login-container label {
+  color: #ddd;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"],
+.login-container button {
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  background-color: #aeaeae;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login-container button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(138, 138, 12);
+  color: white;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: rgb(90, 90, 5);
+  opacity: 0.9;
+  transition: 0.3s linear;
+}
+
+.login-container h2 {
+  color: #f5f5f5;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.create-account-link {
+  color: #000000; /* Example color */
+  margin-top: 15px; /* Spacing from the form */
+  /* Other styles */
+}
