@@ -1,0 +1,15 @@
+#CLIENT
+client/build
+client/node_modules
+client/.env
+
+
+#SERVER
+server/.mvn
+server/mvnw
+server/mvnw.cmd
+server/target
+server/src/main/resources/application-local.properties
+
+#GLOBAL
+.idea
