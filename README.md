@@ -31,13 +31,12 @@ The application is in active development. New features, payment processing, and 
 3. Set up the Server: Ensure the server is correctly handling backend tasks.
 
 ## Note
-As the application is still in the development phase, expect ongoing changes and enhancements. The full-stack deployment will be a first for this project.
+As the application is still in the development phase, expect ongoing changes and enhancements. This will be my first time deploying a full-stack application.
 
 ### Disclaimer
 The **React.js** techniques used in the client are from a beginner perspective and may not adhere to industry standards. The server-side implementation is more robust, reflecting greater experience with backend technologies.
 
 ### Future Plans
-- Account creation.
 - Addition of full songs.
 - Integration of payment system.
 - Deployment of the application.
