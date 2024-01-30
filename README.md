@@ -3,6 +3,11 @@
 ## Overview
 This application serves as a marketplace for selling unpublished movie songs. Users can create accounts, log in, listen to 5-second song samples, and purchase their favorites. The application ensures secure transactions and data handling with Stripe integration and cutting-edge cryptography.
 
+### Design
+Here's the first idea of the design
+![image](https://github.com/Chevuu/MusicPromoter/assets/81182493/7c0bee70-5840-4e0e-a3dc-5f9e65f8a234)
+
+
 ### Client Application
 - **Technology**: React.js
 - **Usage**: As a beginner in React.js, please consider the implementation with caution. The client application is run locally on `localhost:3000`.
