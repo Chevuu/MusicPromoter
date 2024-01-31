@@ -20,4 +20,10 @@ public class SongService {
         return "Song saved successfully.";
     }
 
+    public String deleteAll () {
+        songRepository.deleteAll();
+        log.info("All songs have been deleted from the database.");
+        return "All songs have been deleted from the database.";
+    }
+
 }

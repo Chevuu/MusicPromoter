@@ -6,7 +6,7 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "songs")
-public class Song {
+public class  Song {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +25,14 @@ public class Song {
         this.artist = artist;
         this.songUrl = songUrl;
         this.teaserUrl = teaserUrl;
+        this.timeAdded = Instant.now();
+    }
+
+    public Song(SongData songData) {
+        this.title = songData.getTitle();
+        this.artist = songData.getArtist();
+        this.songUrl = songData.getSongUrl();
+        this.teaserUrl = songData.getTeaserUrl();
         this.timeAdded = Instant.now();
     }
 
